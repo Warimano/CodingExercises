@@ -9,10 +9,7 @@ public class TeenNumberChecker {
     }
 
     public static boolean hasTeen(int first, int second, int third) {
-        boolean teenPresent = false;
-        if (isTeen(first)) {
-            teenPresent = true;
-        }
+        boolean teenPresent = isTeen(first);
         if (isTeen(second)) {
             teenPresent = true;
         }

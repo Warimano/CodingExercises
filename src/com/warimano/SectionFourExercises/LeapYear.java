@@ -25,45 +25,4 @@ public class LeapYear {
         }
         return leapYear;
     }
-
-    public static boolean isLeapYear1(int year) {
-        boolean leapYear;
-        if (year >= 1 && year <= 9999) {
-            leapYear = stepOne(year);
-        } else {
-            leapYear = false;
-        }
-        return leapYear;
-    }
-
-    private static boolean isEvenelyDivisibleBy(int number, int divisibleBy) {
-        return number % divisibleBy == 0;
-    }
-    private static boolean stepOne(int number) {
-        if (isEvenelyDivisibleBy(number, 4)) {
-            return stepTwo(number);
-        } else {
-            return stepFive();
-        }
-    }
-    private static boolean stepTwo(int number) {
-        if (isEvenelyDivisibleBy(number, 100)) {
-            return stepThree(number);
-        } else {
-            return stepFour();
-        }
-    }
-    private static boolean stepThree(int number) {
-        if (isEvenelyDivisibleBy(number, 400)) {
-            return stepFour();
-        } else {
-            return stepFive();
-        }
-    }
-    private static boolean stepFour() {
-        return true;
-    }
-    private static boolean stepFive() {
-        return false;
-    }
 }

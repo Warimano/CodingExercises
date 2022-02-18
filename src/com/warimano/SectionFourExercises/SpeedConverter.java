@@ -3,7 +3,8 @@ package com.warimano.SectionFourExercises;
 public class SpeedConverter {
 
     public static void main(String[] args) {
-
+        final int kmPerHour = 30;
+        printConversion(kmPerHour);
     }
 
     public static long toMilesPerHour(double kilometersPerHour) {
