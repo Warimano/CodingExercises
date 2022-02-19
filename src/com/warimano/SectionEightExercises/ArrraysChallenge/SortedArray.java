@@ -3,15 +3,11 @@ package com.warimano.SectionEightExercises.ArrraysChallenge;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class ArraysChallenge {
+public class SortedArray {
 
     public static void main(String[] args) {
         int[] array = getIntegers(5);
-        printArray(array);
-        System.out.println("###############################");
-        System.out.println();
-        System.out.println("###############################");
-        int[] sorted = sortArray(array);
+        int[] sorted = sortIntegers(array);
         printArray(sorted);
     }
 
@@ -27,10 +23,12 @@ public class ArraysChallenge {
     }
 
     public static void printArray(int[] array) {
-        System.out.println(Arrays.toString(array));
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("Element " + i + " contents " + array[i]);
+        }
     }
 
-    public static int[] sortArray(int[] array) {
+    public static int[] sortIntegers(int[] array) {
         Arrays.sort(array);
         int[] sorted = new int[array.length];
         for (int i = 0; i < sorted.length; i++) {
