@@ -46,32 +46,55 @@ public class MainChallenge {
         }
 
         Basket timsBasket = new Basket("Tim");
-        sellItem(timsBasket, "car", 1);
-        System.out.println(timsBasket);
 
         sellItem(timsBasket, "car", 1);
         System.out.println(timsBasket);
 
+        sellItem(timsBasket, "car", 1);
+        System.out.println(timsBasket);
 
         if (sellItem(timsBasket, "Car", 1) != 1) {
             System.out.println("no more cars in stock");
         }
         sellItem(timsBasket, "spanner", 5);
-        System.out.println(timsBasket);
 
         sellItem(timsBasket, "juice", 4);
         sellItem(timsBasket, "cup", 12);
         sellItem(timsBasket, "bread", 1);
+
+        Basket basket = new Basket("customer");
+        sellItem(basket, "cup", 100);
+        sellItem(basket, "juice", 5);
+        sellItem(basket, "cup", 1);
+        removeItem(basket, "cup", 1);
+        System.out.println(basket);
+
+        removeItem(timsBasket, "car", 1);
+        removeItem(timsBasket, "cup", 9);
+        removeItem(timsBasket, "car", 1);
+        System.out.println("cars removed " + removeItem(timsBasket, "car", 1));
         System.out.println(timsBasket);
 
+        removeItem(timsBasket, "bread", 1);
+        removeItem(timsBasket, "cup", 3);
+        removeItem(timsBasket, "juice", 4);
+        removeItem(timsBasket, "cup", 3);
+        System.out.println(timsBasket);
+
+        System.out.println("\nDisplay stock list before and after checkout");
+        System.out.println(basket);
+        System.out.println(stockList);
+        checkOut(basket);
+        System.out.println(basket);
         System.out.println(stockList);
 
-        stockList.Items().get("car").adjustStock(20000);
-        stockList.get("car").adjustStock(-10000);
+        StockItem car = stockList.Items().get("car");
+        if (car != null) car.adjustStock(20000);
+        if (car != null) stockList.get("car").adjustStock(-10000);
         System.out.println(stockList);
-        for (Map.Entry<String, Double> price : stockList.PriceList().entrySet()) {
-            System.out.println(price.getKey() + " costs " + price.getValue());
-        }
+
+        checkOut(timsBasket);
+        System.out.println(timsBasket);
     }
 
     public static int sellItem(Basket basket, String item, int quantity) {
